@@ -21,7 +21,7 @@ function App() {
     setLoading(true);
     setReview(""); // Clear previous review
     try {
-      const response = await axios.post("https://code-reviewer-backend-coral.vercel.app/ai/get-review", { code });
+      const response = await axios.post("http://code-reviewer-backend-coral.vercel.app/ai/get-review", { code });
       setReview(response.data);
       //eslint-disable-next-line
     } catch (error) {
