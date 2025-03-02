@@ -4,12 +4,17 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+// Update CORS configuration with specific options
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://code-reviewer-orcin.vercel.app/'],
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('I am code Reviewer');
+    res.send('Hello World!');
 });
 
 app.use('/ai', aiRouter);
