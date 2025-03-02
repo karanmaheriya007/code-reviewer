@@ -1,0 +1,37 @@
+1. create backend folder
+2. cd backend
+3. npm init -y
+4. npm i express
+5. create backend/server.js
+6. create backend/src/app.js
+7. go to https://aistudio.google.com/apikey
+8. generate an google gemini API key
+9. store API key in backend/.env
+10. npm i dotenv
+11. add require('dotenv').config(); to use .env variables
+12. npm i @google/generative-ai
+13. go to https://ai.google.dev/gemini-api/docs
+14. copy and paste following code into src/services/ai.service.js :
+    const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+    const generateContent = async (prompt) => {
+        const result = await model.generateContent(prompt);
+        return result.response.text();
+    }
+
+    module.exports = generateContent;
+15. create src/controllers/ai.controller.js and use in following file
+16. create src/routes/ai.route.js and use in app.js
+17. npm create vite@latest
+18. cd frontend
+19. npm in
+20. npm run dev
+21. npm i prismjs
+22. npm i react-simple-code-editor
+23. npm i axios
+24. in backend npm i cors
+25. npm i react-markdown
+26. npm install @mui/material @emotion/react @emotion/styled
