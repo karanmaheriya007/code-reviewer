@@ -4,18 +4,12 @@ const cors = require('cors');
 
 const app = express();
 
-// Update CORS configuration with specific options
-// CORS Configuration
-app.use(cors({
-    origin: ['https://code-reviewer-orcin.vercel.app', 'http://localhost:3000'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('I am code Reviewer');
 });
 
 app.use('/ai', aiRouter);
