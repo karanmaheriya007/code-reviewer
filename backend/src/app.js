@@ -10,11 +10,21 @@ const app = express();
 //     allowedHeaders: ['Content-Type', 'Authorization']
 // }));
 
+const allowedOrigins = [
+    'https://code-reviewer-orcin.vercel.app',
+    'http://localhost:3000'
+];
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true
 }));
-
 
 app.use(express.json());
 
