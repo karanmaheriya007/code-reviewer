@@ -12,7 +12,7 @@ const app = express();
 
 const allowedOrigins = [
     'https://code-reviewer-orcin.vercel.app',
-    'http://localhost:3000'
+    'http://localhost:5173'
 ];
 
 app.use(cors({
