@@ -65,7 +65,8 @@ function App() {
               style={{
                 fontFamily: '"Fira Code", monospace',
                 fontSize: 16,
-                height: "100%",
+                // height: "100%",
+                minHeight: "100%",
                 width: "100%",
                 backgroundColor: "#0d0d2b",
                 color: "#00ffcc",
